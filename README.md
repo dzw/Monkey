@@ -30,6 +30,10 @@ Monkey同级目录有一个Samples目录。该目录为FlashBuild工程文件，
 
 <img src="http://boblchen.github.io/samples/Monkey/fbx3.png"></img>
 
+## 寻路算法pathfinding algorithm
+
+<img src="http://boblchen.github.io/samples/Monkey/nav0.png"></img>
+
 ## Water
 
 <img src="http://boblchen.github.io/samples/Monkey/water.png"></img>
