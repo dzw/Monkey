@@ -47,6 +47,7 @@
 			
 			this.pivot = pivot;
 			this.label = new Label(pivot.name);
+			this.label.width = 100;
 			this.label.flexible = 0;
 			this.label.view.doubleClickEnabled = true;
 			this.level = level;
@@ -125,7 +126,7 @@
 		
 		override public function draw() : void {
 			super.draw();
-			this.label.width = Style.defaultFont.textWidth(this.label.text) + 10;
+//			this.label.width = Style.defaultFont.textWidth(this.label.text) + 10;
 			this.label.draw();
 			this.maxWidth = this.label.x + this.label.width;
 			this.minWidth = this.label.x + this.label.width;

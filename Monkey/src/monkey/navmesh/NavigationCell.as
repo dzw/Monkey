@@ -21,7 +21,7 @@ package monkey.navmesh {
 		public static const VERT_B : int = 1;
 		/** 顶点c */
 		public static const VERT_C : int = 2;
-
+		
 		/** ab边，A->B */
 		public static const SIDE_AB : int = 0;
 		/** bc边，B->C */

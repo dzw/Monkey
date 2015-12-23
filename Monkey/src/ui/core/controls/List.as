@@ -58,9 +58,9 @@
 		}
 
 		private function doubleClick(e : MouseEvent) : void {
-			dispatchEvent(new ControlEvent(ControlEvent.DOUBLE_CLICK, this, e.ctrlKey, e.altKey, e.shiftKey, e.ctrlKey));
+			this.dispatchEvent(new ControlEvent(ControlEvent.DOUBLE_CLICK, this, e.ctrlKey, e.altKey, e.shiftKey, e.ctrlKey));
 		}
-
+		
 		public function keyEvent(e : KeyboardEvent) : void {
 
 			e.stopImmediatePropagation();
@@ -242,9 +242,6 @@
 				this.drawSelection();
 				this.dispatchEvent(new DragDropEvent(this._dropIndex, this._dropOver));
 			}
-//			if ((Math.abs(this._lastX - e.stageX) < 8) && (Math.abs(this._lastY - e.stageY) < 8)) {
-//				this.clickEvent(e);
-//			}
 			view.stage.removeEventListener(MouseEvent.MOUSE_MOVE, this.mouseMoveEvent);
 			view.stage.removeEventListener(MouseEvent.MOUSE_UP, this.mouseUpEvent);
 			view.stage.removeEventListener(Event.ENTER_FRAME, this.updateDragEvent);
@@ -372,6 +369,8 @@
 		}
 		
 		override public function draw() : void {
+			this._container.minHeight = height;
+			this._container.minWidth  = width;
 			this._scrollArea.backgroundColor = Style.backgroundColor;
 			this._scrollArea.width = width;
 			this._scrollArea.height = height;

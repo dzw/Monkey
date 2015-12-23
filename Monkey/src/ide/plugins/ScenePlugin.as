@@ -20,6 +20,7 @@ package ide.plugins {
 	import monkey.core.utils.Color;
 	import monkey.core.utils.FPSStats;
 	import monkey.core.utils.Input3D;
+	import monkey.core.utils.Object3DUtils;
 	import monkey.core.utils.Time3D;
 	
 	import ui.core.interfaces.IPlugin;
@@ -198,7 +199,21 @@ package ide.plugins {
 					this._action = ACTION_ZOOM;
 				}
 			}
-			
+			if (Input3D.keyHit(Input3D.F) && _app.selection.main) {
+				var obj : Object3D = this._app.selection.main;
+				var rad : Number   = 50;
+				var cen : Vector3D = new Vector3D();
+				if (obj.renderer && obj.renderer.mesh) {
+					rad = obj.renderer.mesh.bounds.radius;
+					cen.copyFrom(obj.renderer.mesh.bounds.center);
+				}
+				this._orbitPoint.x = obj.transform.x;
+				this._orbitPoint.y = obj.transform.y;
+				this._orbitPoint.z = obj.transform.z;
+				
+				Object3DUtils.setPositionWithReference(this.camera, 0, rad, -rad, obj);
+				Object3DUtils.lookAtWithReference(this.camera, cen.x, cen.y, cen.z, obj);
+			}
 			if (App.core.stage.focus) {
 				var speed : int = Input3D.keyDown(Input3D.SHIFT) ? 2 : 1;
 				if (Input3D.keyDown(Input3D.UP)) {

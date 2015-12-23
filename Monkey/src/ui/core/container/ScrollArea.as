@@ -61,7 +61,7 @@ package ui.core.container {
 
 			for each (var control : Control in controls) {
 				if (!control.visible) {
-					
+					continue;
 				} else if ((control is Container) || control.flexible != 0) {
 					this._totalWidth = Math.max(this._totalWidth, control.x + control.minWidth);
 					this._totalHeight = Math.max(this._totalHeight, control.y + control.minHeight);
@@ -70,7 +70,7 @@ package ui.core.container {
 					this._totalHeight = Math.max(this._totalHeight, control.y + control.height);
 				}
 			}
-			
+						
 			var i : int = 0;
 			while (i < 2) {
 				if (this._totalHeight > this._contentHeight) {
@@ -110,7 +110,7 @@ package ui.core.container {
 					}
 				}
 			}
-
+		
 			if (this._totalWidth < this._contentWidth) {
 				this._totalWidth = this._contentWidth;
 			}

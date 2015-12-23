@@ -207,12 +207,22 @@ package monkey.navmesh {
 			return path;
 		}
 		
+		/**
+		 * 如果（A，B，C）为正数，则C在矢量AB的左侧； 
+		 * 如果（A，B，C）为负数，则C在矢量AB的右侧； 
+		 * 如果（A，B，C）为0，则C在直线AB上。
+		 * @param a
+		 * @param b
+		 * @param c
+		 * @return 
+		 * 
+		 */		
 		private static function triArea2D(a : Vector3D, b : Vector3D, c : Vector3D) : Number {
 			var abx : Number = b.x - a.x;
 			var abz : Number = b.z - a.z;
 			var acx : Number = c.x - a.x;
 			var acz : Number = c.z - a.z;
-			return acx*abz - abx*acz; 
+			return acx*abz - abx*acz; 		
 		}
 		
 		/**

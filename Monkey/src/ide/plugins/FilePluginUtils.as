@@ -214,6 +214,8 @@ package ide.plugins {
 			var txt : String = bytes.readUTFBytes(bytes.length);
 			var parser : OBJParser = new OBJParser();
 			parser.proceedParsing(txt);
+			trace(parser.pivot.children[0].renderer.mesh.surfaces[0].getVertexVector(Surface3D.POSITION));
+			trace(parser.pivot.children[0].renderer.mesh.surfaces[0].indexVector);
 			return parser.pivot;
 		}
 		

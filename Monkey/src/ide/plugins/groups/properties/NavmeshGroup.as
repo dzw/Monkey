@@ -18,7 +18,6 @@ package ide.plugins.groups.properties {
 	import monkey.core.scene.Scene3D;
 	import monkey.core.utils.Color;
 	import monkey.core.utils.Input3D;
-	import monkey.core.utils.Vector3DUtils;
 	import monkey.navmesh.NavigationCell;
 	import monkey.navmesh.NavigationMesh;
 	
@@ -65,8 +64,7 @@ package ide.plugins.groups.properties {
 			this.endRole.name = "EndRole";
 			this.endRole.addComponent(new MeshRenderer(new Capsule(0.3, 1, 12), new ColorMaterial(new Color(0x00FF00))));
 			this.pathLine.name = "PathLine";
-			this.pathLine.renderer.material.depthCompare = Context3DCompareMode.ALWAYS;
-			
+						
 			this.layout.labelWidth = 55;
 			this.layout.addHorizontalGroup("Start:");
 			this.layout.labelWidth = 15;
@@ -181,8 +179,8 @@ package ide.plugins.groups.properties {
 							}
 							var v0 : Vector3D = node.vertives[node.arrivalWall];
 							var v1 : Vector3D = node.vertives[(node.arrivalWall + 1) % 3];
-							pathLine.moveTo(v0.x, v0.y, v0.z);
-							pathLine.lineTo(v1.x, v1.y, v1.z);
+							pathLine.moveTo(v0.x, v0.y + 0.1, v0.z);
+							pathLine.lineTo(v1.x, v1.y + 0.1, v1.z);
 						}
 						// 绘制路点
 						pathLine.lineStyle(2, 0xFF0000);
